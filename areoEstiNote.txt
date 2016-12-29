@@ -1,0 +1,48 @@
+rostopic pub -1 /areodynamic_optical_flow/areodynamicRunMode std_msgs/Float32 1
+	1£ºuseImuRaw=true;useImuRollAndPitchKfFused=false;useImuYawfusedWithMag=false;
+	2£ºuseImuRaw=false;useImuRollAndPitchKfFused=true;useImuYawfusedWithMag=false;
+	3£ºuseImuRaw=false;useImuRollAndPitchKfFused=true;useImuYawfusedWithMag=true;
+	4£ºuseSonarRaw=true;useSonarKf=false;useSonarComp=false;
+	5£ºuseSonarRaw=false;useSonarKf=true;useSonarComp=false;
+	6£ºuseSonarRaw=false;useSonarKf=false;useSonarComp=true;
+
+rostopic pub -1 /areodynamic_optical_flow/dragForceParam geometry_msgs/Vector3 -0.2436 -0.2825 0
+x: dragForceParamX;
+y: dragForceParamY;
+z: 0
+
+rostopic pub -1 /areodynamic_optical_flow/imuAccNoiseCov geometry_msgs/Vector3 0.019 0.0207 0
+x: measImuAxNoiseCov;
+y: measImuAyNoiseCov;
+z: 0;
+
+rostopic pub -1 /areodynamic_optical_flow/OpticalFlowVelAndDistNoiseCov geometry_msgs/Vector3 0.013 0.013 0.0275
+x: measFlowVxNoiseCovInit;
+y: measFlowVyNoiseCovInit;
+z: measFlowDistNoiseCovInit
+
+rostopic pub -1 /areodynamic_optical_flow/opticalFlowQualInitAndThresh geometry_msgs/Vector3 255 50 240
+x: flowQualInitial;
+y: qualLowThresh;
+z: qualHighThresh;
+
+rostopic pub -1 /areodynamic_optical_flow/sonarKfParam geometry_msgs/Vector3 1.0 0.01 0.055 
+x: sonarKfP;
+y: sonarKfQ;
+z: sonarKfR;
+
+
+rostopic pub -1 /areodynamic_optical_flow/sonarCompParam geometry_msgs/Vector3 0.157 0.314 0.0001
+x: sonarCompK1;
+y: sonarCompK2;
+z: sonarCompK3;
+
+rostopic pub -1 /areodynamic_optical_flow/motionModelAccNoise geometry_msgs/Vector3 0.3846 0.07 0.1319
+x: motionModelAxNoiseCov;
+y: motionModelAyNoiseCov;
+z: motionModelAzNoiseCov;
+
+rostopic pub -1 /areodynamic_optical_flow/MotionModelAngVelAndHeightNoise geometry_msgs/Vector3 0.0031 0.0031 0.0001
+x: motionModelAngVxNoiseCov;
+y: motionModelAngVyNoiseCov;
+z: motionModelHeightNoiseCov;
